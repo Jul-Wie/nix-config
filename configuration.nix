@@ -67,7 +67,11 @@ services = {
   libinput.enable = true;
   printing.enable = true;
   thermald.enable = true;
-};    
+};
+services.fprintd.enable = true;
+services.fprintd.tod.enable = true;
+services.fprintd.tod.driver = pkgs.libfprint-2-tod1-vfs0090; # (If the vfs0090 Driver does not work, use the following driver)
+#services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix; #(On my device it only worked with this driver)    
 #windowManager.awesome = {      
 #enable = true;      
 #package = pkgs.awesome.overrideAttrs (old: {        
@@ -138,4 +142,5 @@ environment.systemPackages = with pkgs; [
   inetutils
   ocs-url
   lshw
+  fprintd
 ];}
