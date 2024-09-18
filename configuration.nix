@@ -137,4 +137,5 @@ environment.systemPackages = with pkgs; [
   screenfetch
   inetutils
   ocs-url
+  lshw
 ];}
