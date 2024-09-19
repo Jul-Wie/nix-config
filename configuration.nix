@@ -70,8 +70,17 @@ services = {
 };
 services.fprintd.enable = true;
 services.fprintd.tod.enable = true;
-services.fprintd.tod.driver = pkgs.libfprint-2-tod1-vfs0090; # (If the vfs0090 Driver does not work, use the following driver)
-#services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix; #(On my device it only worked with this driver)    
+#services.fprintd.tod.driver = pkgs.libfprint-2-tod1-vfs0090; # (If the vfs0090 Driver does not work, use the following driver)
+services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix; #(On my device it only worked with this driver)    
+nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [
+      # Add additional package names here
+      "libfprint-2-tod1-goodix"
+      "spotify"
+    ];   
+      
+
+
 #windowManager.awesome = {      
 #enable = true;      
 #package = pkgs.awesome.overrideAttrs (old: {        
@@ -103,11 +112,6 @@ users.users.julios = {
     librewolf
   ];
 };
-
-nixpkgs.config.allowUnfreePredicate = pkg:
-  builtins.elem (lib.getName pkg) [
-    "spotify"
-  ];
 
 environment.systemPackages = with pkgs; [
   vim
@@ -143,4 +147,5 @@ environment.systemPackages = with pkgs; [
   ocs-url
   lshw
   fprintd
+  chromium
 ];}
