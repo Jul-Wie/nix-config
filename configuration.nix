@@ -149,4 +149,5 @@ environment.systemPackages = with pkgs; [
   fprintd
   chromium
   usbutils
+  unzip
 ];}
