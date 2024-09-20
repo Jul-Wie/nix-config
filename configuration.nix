@@ -148,4 +148,5 @@ environment.systemPackages = with pkgs; [
   lshw
   fprintd
   chromium
+  usbutils
 ];}
