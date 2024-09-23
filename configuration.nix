@@ -1,12 +1,14 @@
 { config, pkgs, lib, ... }:
-{
+{ 
 imports =
   [ 
     ./hardware-configuration.nix
   ];
-
 system.stateVersion = "24.05"; # never make anything other than 24.05
-
+#  conf-pkg-config = super.conf-pkg-config.overrideAttrs (oldAttrs: {
+#    propagatedBuildInputs = [ pkgs.pkg-config ];
+#    propagatedNativeBuildInputs = [ pkgs.pkg-config ];
+#  }); 
 boot.loader = {
   systemd-boot.enable = true;
   efi.canTouchEfiVariables = true;
@@ -68,14 +70,10 @@ services = {
   printing.enable = true;
   thermald.enable = true;
 };
-services.fprintd.enable = true;
-services.fprintd.tod.enable = true;
-#services.fprintd.tod.driver = pkgs.libfprint-2-tod1-vfs0090; # (If the vfs0090 Driver does not work, use the following driver)
-services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix; #(On my device it only worked with this driver)    
+    
 nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
       # Add additional package names here
-      "libfprint-2-tod1-goodix"
       "spotify"
     ];   
       
@@ -110,9 +108,8 @@ users.users.julios = {
   extraGroups = [ "networkmanager" "wheel" ];
   packages = with pkgs; [
     librewolf
-  ];
+];
 };
-
 environment.systemPackages = with pkgs; [
   vim
   wget
@@ -133,11 +130,6 @@ environment.systemPackages = with pkgs; [
   picom
   rofi
   arduino-ide
-  arduino
-  gzdoom
-  freeciv
-  openttd
-  endless-sky
   emacs
   calibre
   cartridges
@@ -146,8 +138,8 @@ environment.systemPackages = with pkgs; [
   inetutils
   ocs-url
   lshw
-  fprintd
   chromium
   usbutils
   unzip
+  arduino
 ];}
