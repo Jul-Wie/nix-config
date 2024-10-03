@@ -142,4 +142,5 @@ environment.systemPackages = with pkgs; [
   usbutils
   unzip
   arduino
+  genymotion
 ];}
