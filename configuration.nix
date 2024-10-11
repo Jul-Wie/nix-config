@@ -143,4 +143,5 @@ environment.systemPackages = with pkgs; [
   unzip
   arduino
   anbox
+  godot_4
 ];}
