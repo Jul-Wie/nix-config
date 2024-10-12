@@ -129,7 +129,6 @@ environment.systemPackages = with pkgs; [
   findutils
   picom
   rofi
-  arduino-ide
   emacs
   calibre
   cartridges
@@ -141,7 +140,7 @@ environment.systemPackages = with pkgs; [
   chromium
   usbutils
   unzip
-  arduino
   anbox
   godot_4
+  corefonts
 ];}
