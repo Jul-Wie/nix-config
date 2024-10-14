@@ -75,6 +75,7 @@ nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
       # Add additional package names here
       "spotify"
+      "corefonts"
     ];   
       
 
@@ -143,4 +144,5 @@ environment.systemPackages = with pkgs; [
   anbox
   godot_4
   corefonts
+  veracrypt
 ];}
