@@ -76,6 +76,7 @@ nixpkgs.config.allowUnfreePredicate = pkg:
       # Add additional package names here
       "spotify"
       "corefonts"
+      "veracrypt"
     ];   
       
 
@@ -145,4 +146,5 @@ environment.systemPackages = with pkgs; [
   godot_4
   corefonts
   veracrypt
+  numworks-udev-rules
 ];}
