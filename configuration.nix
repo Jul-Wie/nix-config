@@ -1,24 +1,25 @@
-{ config, pkgs, lib, ... }:
-{ 
+{ config, pkgs, lib, ... }:{ 
 imports =
   [ 
     ./hardware-configuration.nix
   ];
+  
 system.stateVersion = "24.05"; # never make anything other than 24.05
-#  conf-pkg-config = super.conf-pkg-config.overrideAttrs (oldAttrs: {
-#    propagatedBuildInputs = [ pkgs.pkg-config ];
-#    propagatedNativeBuildInputs = [ pkgs.pkg-config ];
-#  }); 
+time.timeZone = "Europe/Amsterdam";
+
+#Base Hardware
+services.libinput.enable = true;
+services.thermald.enable = true;
+powerManagement = {
+  enable = true;
+  powertop.enable = true;
+};
 boot.loader = {
   systemd-boot.enable = true;
   efi.canTouchEfiVariables = true;
 };
 
-powerManagement = {
-  enable = true;
-  powertop.enable = true;
-};
-
+#Network Settings
 networking = { 
   hostName = "nixos";
   networkmanager.enable = true;
@@ -27,8 +28,45 @@ networking = {
   #..TCP.. = [ ... ];
 };
 
-time.timeZone = "Europe/Amsterdam";
+#Sound
+hardware.pulseaudio.enable = false;
+services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+};
+
+#Graphics
+security.rtkit.enable = true;
+hardware.graphics.enable = true;
+hardware.graphics.extraPackages = [ pkgs.mesa.drivers ];
+
+#Desktop
+services.xserver = {
+  enable = true;
+  displayManager.gdm.enable = true;
+  desktopManager.gnome.enable = true;
+  desktopManager.lxqt.enable = true;
+  xkb.layout = "us";
+};
+
+#Other services
+services.printing.enable = true;
+
+#User settings
+users.users.julios = {
+  isNormalUser = true;
+  description = "julios";
+  extraGroups = [ "networkmanager" "wheel" ];
+  packages = with pkgs; [
+    librewolf
+  ];
+};
+
+#Locale Stuff
 i18n = {
+  defaultLocale = "en_US.UTF-8";
   extraLocaleSettings = {
     LC_ADDRESS = "nl_NL.UTF-8";
     LC_IDENTIFICATION = "nl_NL.UTF-8";
@@ -40,59 +78,19 @@ i18n = {
     LC_TELEPHONE = "nl_NL.UTF-8";
     LC_TIME = "nl_NL.UTF-8";
   };
-  defaultLocale = "en_US.UTF-8";
 };
 
-hardware = {
-  pulseaudio.enable = false;
-  opengl = {
-    enable = true;
-    extraPackages = [ pkgs.mesa.drivers ];
-  };  
-};
+#Proprietary stuff
+nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+  "spotify"
+  "corefonts"
+  "bitwig-studio"
+]; 
 
-sound.enable = true;
-security.rtkit.enable = true;
-
-services = {
-  xserver = { enable = true;
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
-    xkb.layout = "us";
-  };
-  pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
-  libinput.enable = true;
-  printing.enable = true;
-  thermald.enable = true;
-};
-    
-nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [
-      # Add additional package names here
-      "spotify"
-      "corefonts"
-      "veracrypt"
-    ];   
-      
-
-
-#windowManager.awesome = {      
-#enable = true;      
-#package = pkgs.awesome.overrideAttrs (old: {        
-#src = pkgs.fetchFromGitHub {      	  
-#owner = "awesomeWM";      	  
-#repo = "awesome";      	  rev = "392dbc2";      	  
-#sha256 = "sha256:093zapjm1z33sr7rp895kplw91qb8lq74qwc0x1ljz28xfsbp496";         }; 
+#Packages to exclude
 environment.gnome.excludePackages = (with pkgs; [
   gnome-photos
   gnome-tour
-]) 
-++ (with pkgs.gnome; [
   gnome-contacts
   gnome-weather
   epiphany # web browser
@@ -103,48 +101,34 @@ environment.gnome.excludePackages = (with pkgs; [
   atomix # puzzle game
 ]);
 
-
-users.users.julios = {
-  isNormalUser = true;
-  description = "julios";
-  extraGroups = [ "networkmanager" "wheel" ];
-  packages = with pkgs; [
-    librewolf
-];
-};
+#System Packages
 environment.systemPackages = with pkgs; [
   vim
   wget
   rclone 
-  gnome3.gnome-tweaks 
-  glxinfo
+  gnome-tweaks 
+  glxinfo #opengl stuff
   htop 
   git 
-  flatpak
+  flatpak #steam
   signal-desktop
   libreoffice-qt6-fresh
   amberol
   spotify
   killall
   protonvpn-gui
-  flutter
   findutils
   picom
-  rofi
-  emacs
   calibre
-  cartridges
   neofetch
-  screenfetch
   inetutils
   ocs-url
-  lshw
+  lshw #List Hardware
   chromium
   usbutils
   unzip
-  anbox
-  godot_4
   corefonts
-  veracrypt
-  numworks-udev-rules
+  bitwig-studio
+  prismlauncher
+  libsForQt5.qtstyleplugin-kvantum
 ];}
