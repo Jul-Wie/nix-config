@@ -18,6 +18,7 @@ boot.loader = {
   systemd-boot.enable = true;
   efi.canTouchEfiVariables = true;
 };
+boot.kernelModules = [ "snd-seq" "snd-rawmidi" ];
 
 #Network Settings
 networking = { 
@@ -30,11 +31,18 @@ networking = {
 
 #Sound
 hardware.pulseaudio.enable = false;
-services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
+services = {  
+  pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+  };
+  jack = {
+    jackd.enable = true;
+    alsa.enable = false;
+    loopback.enable = true;
+  };
 };
 
 #Graphics
@@ -58,7 +66,7 @@ services.printing.enable = true;
 users.users.julios = {
   isNormalUser = true;
   description = "julios";
-  extraGroups = [ "networkmanager" "wheel" ];
+  extraGroups = [ "networkmanager" "wheel" "jackaudio" ];
   packages = with pkgs; [
     librewolf
   ];
@@ -84,6 +92,8 @@ i18n = {
 nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
   "spotify"
   "corefonts"
+  "reaper"
+  "renoise"
  ]; 
 
 #Packages to exclude
@@ -130,6 +140,6 @@ environment.systemPackages = with pkgs; [
   ardour
   zrythm
   reaper
-  waveform
   renoise
+  qjackctl
 ];}
