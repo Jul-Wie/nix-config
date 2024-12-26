@@ -47,7 +47,7 @@ services.xserver = {
   enable = true;
   displayManager.gdm.enable = true;
   desktopManager.gnome.enable = true;
-  desktopManager.lxqt.enable = true;
+  #desktopManager.lxqt.enable = true;
   xkb.layout = "us";
 };
 
@@ -84,8 +84,7 @@ i18n = {
 nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
   "spotify"
   "corefonts"
-  "bitwig-studio"
-]; 
+ ]; 
 
 #Packages to exclude
 environment.gnome.excludePackages = (with pkgs; [
@@ -113,7 +112,6 @@ environment.systemPackages = with pkgs; [
   flatpak #steam
   signal-desktop
   libreoffice-qt6-fresh
-  amberol
   spotify
   killall
   protonvpn-gui
@@ -128,7 +126,10 @@ environment.systemPackages = with pkgs; [
   usbutils
   unzip
   corefonts
-  bitwig-studio
-  prismlauncher
-  libsForQt5.qtstyleplugin-kvantum
+   prismlauncher
+  ardour
+  zrythm
+  reaper
+  waveform
+  renoise
 ];}
