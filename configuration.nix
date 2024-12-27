@@ -37,12 +37,13 @@ services = {
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
+      jack.enable = true;
   };
-  jack = {
-    jackd.enable = true;
-    alsa.enable = false;
-    loopback.enable = true;
-  };
+  #jack = {
+   # jackd.enable = true;
+    #alsa.enable = false;
+    #loopback.enable = true;
+#  };
 };
 
 #Graphics
@@ -142,4 +143,5 @@ environment.systemPackages = with pkgs; [
   reaper
   renoise
   qjackctl
+  arduino
 ];}
