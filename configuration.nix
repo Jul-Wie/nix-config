@@ -144,5 +144,5 @@ environment.systemPackages = with pkgs; [
   renoise
   qjackctl
   arduino
-  grapejuice
+  mpv
 ];}
