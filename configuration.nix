@@ -2,6 +2,7 @@
 imports =
   [ 
     ./hardware-configuration.nix
+    ./info.nix
   ];
   
 system.stateVersion = "24.05"; # never make anything other than 24.05
@@ -64,14 +65,7 @@ services.xserver = {
 services.printing.enable = true;
 
 #User settings
-users.users.julios = {
-  isNormalUser = true;
-  description = "julios";
-  extraGroups = [ "networkmanager" "wheel" "jackaudio" ];
-  packages = with pkgs; [
-    librewolf
-  ];
-};
+
 
 #Locale Stuff
 i18n = {
@@ -145,4 +139,5 @@ environment.systemPackages = with pkgs; [
   qjackctl
   arduino
   mpv
+  unityhub
 ];}
