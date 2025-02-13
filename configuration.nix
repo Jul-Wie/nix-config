@@ -89,6 +89,7 @@ nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
   "corefonts"
   "reaper"
   "renoise"
+  "unityhub"
  ]; 
 
 #Packages to exclude
@@ -140,4 +141,5 @@ environment.systemPackages = with pkgs; [
   arduino
   mpv
   unityhub
+  gimp
 ];}
