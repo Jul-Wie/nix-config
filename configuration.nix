@@ -142,4 +142,5 @@ environment.systemPackages = with pkgs; [
   mpv
   unityhub
   gimp
+  dolphinEmu
 ];}
