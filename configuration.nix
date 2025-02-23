@@ -142,5 +142,6 @@ environment.systemPackages = with pkgs; [
   mpv
   unityhub
   gimp
-  dolphinEmu
+  dolphin-emu
+  blender
 ];}
