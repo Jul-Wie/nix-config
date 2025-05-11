@@ -51,7 +51,8 @@ services = {
 security.rtkit.enable = true;
 hardware.graphics.enable = true;
 hardware.graphics.extraPackages = [ pkgs.mesa.drivers ];
-
+hardware.opengl.driSupport32Bit = true;
+  hardware.opengl.enable = true;
 #Desktop
 services.xserver = {
   enable = true;
@@ -85,12 +86,10 @@ i18n = {
 
 #Proprietary stuff
 nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-  "spotify"
   "corefonts"
   "reaper"
   "renoise"
-  "unityhub"
- ]; 
+]; 
 
 #Packages to exclude
 environment.gnome.excludePackages = (with pkgs; [
@@ -110,7 +109,9 @@ environment.gnome.excludePackages = (with pkgs; [
 environment.systemPackages = with pkgs; [
   vim
   wget
-  rclone 
+  vulkan-tools
+mesa  
+rclone 
   gnome-tweaks 
   glxinfo #opengl stuff
   htop 
@@ -118,7 +119,6 @@ environment.systemPackages = with pkgs; [
   flatpak #steam
   signal-desktop
   libreoffice-qt6-fresh
-  spotify
   killall
   protonvpn-gui
   findutils
@@ -132,16 +132,12 @@ environment.systemPackages = with pkgs; [
   usbutils
   unzip
   corefonts
-   prismlauncher
-  ardour
-  zrythm
-  reaper
-  renoise
+  prismlauncher
   qjackctl
   arduino
   mpv
-  unityhub
   gimp
   dolphin-emu
   blender
+  
 ];}
