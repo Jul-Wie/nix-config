@@ -140,4 +140,5 @@ rclone
   dolphin-emu
   blender
   
+  thunderbird
 ];}
