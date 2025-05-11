@@ -141,4 +141,5 @@ rclone
   blender
   
   thunderbird
+  qownnotes
 ];}
