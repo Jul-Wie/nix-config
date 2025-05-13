@@ -3,6 +3,7 @@ imports =
   [ 
     ./hardware-configuration.nix
     ./info.nix
+    ./laptopapps.nix
   ];
   
 system.stateVersion = "24.05"; # never make anything other than 24.05
@@ -87,8 +88,6 @@ i18n = {
 #Proprietary stuff
 nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
   "corefonts"
-  "reaper"
-  "renoise"
 ]; 
 
 #Packages to exclude
@@ -104,42 +103,4 @@ environment.gnome.excludePackages = (with pkgs; [
   hitori # sudoku game
   atomix # puzzle game
 ]);
-
-#System Packages
-environment.systemPackages = with pkgs; [
-  vim
-  wget
-  vulkan-tools
-mesa  
-rclone 
-  gnome-tweaks 
-  glxinfo #opengl stuff
-  htop 
-  git 
-  flatpak #steam
-  signal-desktop
-  libreoffice-qt6-fresh
-  killall
-  protonvpn-gui
-  findutils
-  picom
-  calibre
-  neofetch
-  inetutils
-  ocs-url
-  lshw #List Hardware
-  chromium
-  usbutils
-  unzip
-  corefonts
-  prismlauncher
-  qjackctl
-  arduino
-  mpv
-  gimp
-  dolphin-emu
-  blender
-  
-  thunderbird
-  qownnotes
-];}
+}
