@@ -4,9 +4,9 @@ imports =
     ./hardware-configuration.nix
     ./info.nix
     ./laptopapps.nix
+    ./stateversion.nix
   ];
   
-system.stateVersion = "24.05"; # never make anything other than 24.05
 time.timeZone = "Europe/Amsterdam";
 
 #Base Hardware
