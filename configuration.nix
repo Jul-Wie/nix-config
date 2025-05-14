@@ -3,7 +3,6 @@ imports =
   [ 
     ./hardware-configuration.nix
     ./info.nix
-    ./laptopapps.nix
     ./stateversion.nix
   ];
   
