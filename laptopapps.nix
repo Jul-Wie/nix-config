@@ -34,6 +34,5 @@ environment.systemPackages = with pkgs; [
   dolphin-emu
   blender
   thunderbird
-];}
-  screenfetch
+  cmatrix
 ];}
