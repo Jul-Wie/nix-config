@@ -56,9 +56,6 @@ hardware.opengl.driSupport32Bit = true;
 #Desktop
 services.xserver = {
   enable = true;
-  displayManager.gdm.enable = true;
-  desktopManager.gnome.enable = true;
-  #desktopManager.lxqt.enable = true;
   xkb.layout = "us";
 };
 

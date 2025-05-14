@@ -1,5 +1,10 @@
 { config, pkgs, lib, ... }:{ 
 #System Packages
+services.xserver = {
+  displayManager.gdm.enable = true;
+  desktopManager.gnome.enable = true;
+};
+
 environment.systemPackages = with pkgs; [
   vim
   wget
