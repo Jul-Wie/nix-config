@@ -4,8 +4,8 @@ environment.systemPackages = with pkgs; [
   vim
   wget
   vulkan-tools
-mesa  
-rclone 
+  mesa  
+  rclone 
   gnome-tweaks 
   glxinfo #opengl stuff
   htop 
@@ -34,6 +34,5 @@ rclone
   dolphin-emu
   blender
   thunderbird
-  qownnotes
 ];}
 
