@@ -6,7 +6,6 @@ services.xserver = {
 };
 nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
   "corefonts"
-  "steam"
 ]; 
 
 environment.systemPackages = with pkgs; [
@@ -43,5 +42,4 @@ environment.systemPackages = with pkgs; [
   dolphin-emu
   blender
   cmatrix
-  steam
 ];}
