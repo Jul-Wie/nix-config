@@ -15,6 +15,7 @@ powerManagement = {
   enable = true;
   powertop.enable = true;
 };
+boot.kernelModules = [ "snd-seq" "snd-rawmidi" ];
 
 #Network Settings
 networking = { 
