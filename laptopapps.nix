@@ -4,6 +4,11 @@ services.xserver = {
   displayManager.gdm.enable = true;
   desktopManager.gnome.enable = true;
 };
+boot.loader = {
+  systemd-boot.enable = true;
+  efi.canTouchEfiVariables = true;
+};
+boot.kernelModules = [ "snd-seq" "snd-rawmidi" ];
 
 environment.systemPackages = with pkgs; [
   vim

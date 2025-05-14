@@ -15,11 +15,6 @@ powerManagement = {
   enable = true;
   powertop.enable = true;
 };
-boot.loader = {
-  systemd-boot.enable = true;
-  efi.canTouchEfiVariables = true;
-};
-boot.kernelModules = [ "snd-seq" "snd-rawmidi" ];
 
 #Network Settings
 networking = { 
