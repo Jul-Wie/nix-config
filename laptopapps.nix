@@ -35,4 +35,5 @@ environment.systemPackages = with pkgs; [
   blender
   thunderbird
 ];}
-
+  screenfetch
+];}
