@@ -45,4 +45,5 @@ environment.systemPackages = with pkgs; [
   blender
   thunderbird
   cmatrix
+  zip
 ];}
