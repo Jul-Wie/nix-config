@@ -4,6 +4,10 @@ services.xserver = {
   displayManager.gdm.enable = true;
   desktopManager.gnome.enable = true;
 };
+nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+  "corefonts"
+  "steam"
+]; 
 
 environment.systemPackages = with pkgs; [
   vim
@@ -39,4 +43,5 @@ environment.systemPackages = with pkgs; [
   dolphin-emu
   blender
   cmatrix
+  steam
 ];}
