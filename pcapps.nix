@@ -43,4 +43,5 @@ environment.systemPackages = with pkgs; [
   blender
   cmatrix
   gparted
+  rpi-imager
 ];}
