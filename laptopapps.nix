@@ -47,4 +47,5 @@ environment.systemPackages = with pkgs; [
   cmatrix
   zip
   nmap
+  sshpass
 ];}
