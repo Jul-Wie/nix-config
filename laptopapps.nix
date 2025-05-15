@@ -46,4 +46,5 @@ environment.systemPackages = with pkgs; [
   thunderbird
   cmatrix
   zip
+  nmap
 ];}
