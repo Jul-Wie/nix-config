@@ -48,4 +48,5 @@ environment.systemPackages = with pkgs; [
   zip
   nmap
   sshpass
+  nextcloud-client
 ];}
