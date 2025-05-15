@@ -42,4 +42,5 @@ environment.systemPackages = with pkgs; [
   dolphin-emu
   blender
   cmatrix
+  gparted
 ];}
