@@ -5,7 +5,7 @@ services.xserver = {
   desktopManager.gnome.enable = true;
 };
 nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-  "bitwig-studio4"
+  "bitwig-studio"
 ]; 
 
 environment.systemPackages = with pkgs; [
