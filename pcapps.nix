@@ -5,7 +5,7 @@ services.xserver = {
   desktopManager.gnome.enable = true;
 };
 nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-  "bitwig-studio"
+  "bitwig-studio4"
 ]; 
 
 environment.systemPackages = with pkgs; [
@@ -43,5 +43,5 @@ environment.systemPackages = with pkgs; [
   cmatrix
   gparted
   rpi-imager
-  bitwig-studio
+  bitwig-studio4
 ];}
