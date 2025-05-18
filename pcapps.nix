@@ -5,7 +5,7 @@ services.xserver = {
   desktopManager.gnome.enable = true;
 };
 nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-  "corefonts"
+  "bitwig-studio"
 ]; 
 
 environment.systemPackages = with pkgs; [
@@ -33,7 +33,6 @@ environment.systemPackages = with pkgs; [
   chromium
   usbutils
   unzip
-  corefonts
   prismlauncher
   qjackctl
   arduino
