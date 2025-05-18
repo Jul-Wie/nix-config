@@ -5,7 +5,6 @@ services.xserver = {
   desktopManager.gnome.enable = true;
 };
 nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-  
 ]; 
 
 environment.systemPackages = with pkgs; [
@@ -44,4 +43,5 @@ environment.systemPackages = with pkgs; [
   gparted
   rpi-imager
   ardour
+  nextcloud-client
 ];}
