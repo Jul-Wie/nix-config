@@ -44,5 +44,5 @@ environment.systemPackages = with pkgs; [
   cmatrix
   gparted
   rpi-imager
-  bitwig
+  bitwig-studio
 ];}
