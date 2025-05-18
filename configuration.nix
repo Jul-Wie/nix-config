@@ -56,8 +56,10 @@ services.xserver = {
 };
 
 #Other services
-services.printing.enable = true;
-
+services={
+printing.enable = true;
+flatpak.enable = true;
+};
 #User settings
 
 
