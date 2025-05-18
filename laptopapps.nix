@@ -49,4 +49,5 @@ environment.systemPackages = with pkgs; [
   nmap
   sshpass
   nextcloud-client
+  gparted
 ];}
