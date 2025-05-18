@@ -77,11 +77,6 @@ i18n = {
   };
 };
 
-#Proprietary stuff
-nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-  "corefonts"
-]; 
-
 #Packages to exclude
 environment.gnome.excludePackages = (with pkgs; [
   gnome-photos
