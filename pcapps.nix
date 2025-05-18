@@ -43,4 +43,5 @@ environment.systemPackages = with pkgs; [
   cmatrix
   gparted
   rpi-imager
+  ardour
 ];}
