@@ -51,4 +51,5 @@ environment.systemPackages = with pkgs; [
   nextcloud-client
   gparted
   ardour
+  iftop
 ];}
