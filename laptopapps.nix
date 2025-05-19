@@ -50,4 +50,5 @@ environment.systemPackages = with pkgs; [
   sshpass
   nextcloud-client
   gparted
+  ardour
 ];}

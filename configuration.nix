@@ -15,7 +15,6 @@ powerManagement = {
   enable = true;
   powertop.enable = true;
 };
-boot.kernelModules = [ "snd-seq" "snd-rawmidi" ];
 
 #Network Settings
 networking = { 
@@ -56,10 +55,8 @@ services.xserver = {
 };
 
 #Other services
-services={
-printing.enable = true;
-flatpak.enable = true;
-};
+services.printing.enable = true;
+
 #User settings
 
 
@@ -78,6 +75,11 @@ i18n = {
     LC_TIME = "nl_NL.UTF-8";
   };
 };
+
+#Proprietary stuff
+nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+  "corefonts"
+]; 
 
 #Packages to exclude
 environment.gnome.excludePackages = (with pkgs; [
