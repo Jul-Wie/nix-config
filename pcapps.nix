@@ -43,6 +43,4 @@ environment.systemPackages = with pkgs; [
   rpi-imager
   ardour
   nextcloud-client
-  catppuccin-grub
-  xdg-desktop-portal-gnome
 ];}
