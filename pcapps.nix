@@ -44,8 +44,5 @@ environment.systemPackages = with pkgs; [
   ardour
   nextcloud-client
   wine
-  jackd
-  libjack
-  jack-dev
   wineasio
 ];}

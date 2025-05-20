@@ -36,11 +36,11 @@ services = {
       pulse.enable = true;
       jack.enable = true;
   };
-  #jack = {
-   # jackd.enable = true;
-    #alsa.enable = false;
-    #loopback.enable = true;
-#  };
+  jack = {
+    jackd.enable = true;
+    alsa.enable = false;
+    loopback.enable = true;
+  };
 };
 
 #Graphics
