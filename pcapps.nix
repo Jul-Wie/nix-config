@@ -44,5 +44,4 @@ environment.systemPackages = with pkgs; [
   ardour
   nextcloud-client
   catppuccin-grub
-  gdm-settings
 ];}
