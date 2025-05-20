@@ -43,4 +43,11 @@ environment.systemPackages = with pkgs; [
   rpi-imager
   ardour
   nextcloud-client
+  wine
+  wine-dev
+  jackd
+  
+  libjack
+  jack-dev
+  wineasio
 ];}
