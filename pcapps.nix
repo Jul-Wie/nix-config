@@ -43,6 +43,6 @@ environment.systemPackages = with pkgs; [
   rpi-imager
   ardour
   nextcloud-client
-  winewowpackages
+  winewowpackages.full
   wineasio
 ];}
