@@ -46,4 +46,5 @@ environment.systemPackages = with pkgs; [
   wineWowPackages.full
   wineasio
   nmap
+  winetricks
 ];}
