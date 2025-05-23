@@ -45,4 +45,5 @@ environment.systemPackages = with pkgs; [
   nextcloud-client
   wineWowPackages.full
   wineasio
+  nmap
 ];}
