@@ -20,7 +20,6 @@ environment.systemPackages = with pkgs; [
   glxinfo #opengl stuff
   htop 
   git 
-  flatpak #steam
   signal-desktop
   libreoffice-qt6-fresh
   killall

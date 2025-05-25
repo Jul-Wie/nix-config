@@ -33,13 +33,13 @@ services = {
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
-      jack.enable = true;
+  #    jack.enable = true;
   };
-  #jack = {
-   # jackd.enable = true;
-    #alsa.enable = false;
-    #loopback.enable = true;
-#  };
+  jack = {
+    jackd.enable = true;
+    alsa.enable = false;
+    loopback.enable = true;
+  };
 };
 
 #Graphics
@@ -55,8 +55,10 @@ services.xserver = {
 };
 
 #Other services
-services.printing.enable = true;
-
+services={
+  printing.enable = true;
+  flatpak.enable = true;
+}
 #User settings
 
 
@@ -75,11 +77,6 @@ i18n = {
     LC_TIME = "nl_NL.UTF-8";
   };
 };
-
-#Proprietary stuff
-nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-  "corefonts"
-]; 
 
 #Packages to exclude
 environment.gnome.excludePackages = (with pkgs; [
