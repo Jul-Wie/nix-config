@@ -34,7 +34,6 @@ environment.systemPackages = with pkgs; [
   chromium
   usbutils
   unzip
-  corefonts
   prismlauncher
   qjackctl
   arduino
