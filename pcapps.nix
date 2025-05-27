@@ -47,4 +47,5 @@ environment.systemPackages = with pkgs; [
   wineasio
   nmap
   winetricks
+  android-tools
 ];}
