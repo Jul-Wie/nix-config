@@ -35,7 +35,6 @@ environment.systemPackages = with pkgs; [
   usbutils
   unzip
   prismlauncher
-  qjackctl
   arduino
   mpv
   gimp
