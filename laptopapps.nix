@@ -50,4 +50,5 @@ environment.systemPackages = with pkgs; [
   gparted
   ardour
   iftop
+  gnome-network-displays
 ];}
