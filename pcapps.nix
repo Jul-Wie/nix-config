@@ -48,4 +48,5 @@ environment.systemPackages = with pkgs; [
   nmap
   winetricks
   android-tools
+  woeusb
 ];}

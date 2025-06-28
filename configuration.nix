@@ -33,13 +33,13 @@ services = {
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
-  #    jack.enable = true;
+#      jack.enable = true;
   };
-#  jack = {
- #   jackd.enable = true;
-  #  alsa.enable = false;
-   # loopback.enable = true;
- # };
+  jack = {
+    jackd.enable = true;
+    alsa.enable = false;
+    loopback.enable = true;
+  };
 };
 
 #Graphics
@@ -56,8 +56,8 @@ services.xserver = {
 
 #Other services
 services={
-  printing.enable = true;
-  flatpak.enable = true;
+printing.enable = true;
+flatpak.enable = true;
 };
 #User settings
 
