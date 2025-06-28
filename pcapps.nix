@@ -49,4 +49,5 @@ environment.systemPackages = with pkgs; [
   winetricks
   android-tools
   woeusb
+  ntfs3g
 ];}
