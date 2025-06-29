@@ -50,4 +50,5 @@ environment.systemPackages = with pkgs; [
   android-tools
   woeusb
   ntfs3g
+  gptfdisk
 ];}
